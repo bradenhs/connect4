@@ -9,10 +9,7 @@ describe("Game Play", () => {
     cy.window().then(win => {
       win.connect4.model.helpOpen = false;
     });
-    cy.getByPlaceholderText("Player 1 Url").type("http://player1");
-    cy.getByPlaceholderText("Player 2 Url").type("http://player2");
     cy.server();
-    cy.getByText("Fast").click();
   });
 
   it("should give win to p1", () => {
@@ -93,7 +90,7 @@ function fakeGame(params: {
         cy.route("POST", "http://player1", { nextMove: params.turns[turn].p1 });
       });
 
-    // There may be not last p2 move
+    // There may be not a last p2 move
     if (params.turns[turn].p2 === undefined) {
       continue;
     }
@@ -105,7 +102,14 @@ function fakeGame(params: {
       });
 
     if (turn === 0) {
-      cy.getByText("Start Game").click();
+      cy.window().then(win => {
+        win.connect4.model.gameSpeed = "fast";
+        win.connect4.startGame(
+          win.connect4.model,
+          "http://player1",
+          "http://player2"
+        );
+      });
     }
   }
 
