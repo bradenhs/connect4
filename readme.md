@@ -34,7 +34,7 @@ Connect 4 with a twist: Instead, of playing someone directly write a program to 
 
 ## Running the Client Locally
 
-1. `git clone https://github.com/bradenhs/connect4`
+1. `git clone git@github.com:bradenhs/connect4.git`
 2. `cd connect4`
 3. `npm install`
 4. `npm start`
