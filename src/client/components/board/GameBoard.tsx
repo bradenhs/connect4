@@ -5,6 +5,7 @@ import { style } from "typestyle";
 import { Grid } from "./Grid";
 import { GameTokenCollection } from "./GameTokenCollection";
 import { Colors } from "@blueprintjs/core";
+import { NUM_BOARD_COLUMNS, NUM_BOARD_ROWS } from "../../../shared/constants";
 
 const gameBoardContainerClassName = style({
   display: "flex",
@@ -15,8 +16,8 @@ const gameBoardContainerClassName = style({
 
 const gameBoardClassName = style({
   position: "relative",
-  width: 7 * GRID_SQUARE_SIZE + "px",
-  height: 6 * GRID_SQUARE_SIZE + "px",
+  width: NUM_BOARD_COLUMNS * GRID_SQUARE_SIZE + "px",
+  height: NUM_BOARD_ROWS * GRID_SQUARE_SIZE + "px",
   border: `20px solid ${Colors.BLUE3}`,
   borderTop: `5px solid ${Colors.GOLD4}`,
   boxSizing: "content-box",

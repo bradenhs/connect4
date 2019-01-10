@@ -9,6 +9,7 @@ import { hasDraw } from "../shared/hasDraw";
 import { getWinner } from "../shared/getWinner";
 import { showToast } from "./utils/showToast";
 import { getRandomLegalMove } from "../shared/getRandomLegalMove";
+import { NUM_BOARD_COLUMNS } from "../shared/constants";
 
 let gameIdCounter = 0;
 
@@ -164,8 +165,9 @@ async function getNextMove(model: Model) {
   if (
     typeof result !== "object" ||
     result === null ||
+    typeof result.nextMove !== "number" ||
     result.nextMove < 0 ||
-    result.nextMove > 6 ||
+    result.nextMove > NUM_BOARD_COLUMNS - 1 ||
     (result.message !== undefined && typeof result.message !== "string")
   ) {
     throw new Error("Invalid response");

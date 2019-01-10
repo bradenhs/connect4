@@ -3,10 +3,10 @@ import { GRID_SQUARE_SIZE } from "../../constants";
 import { style } from "typestyle";
 import { Colors } from "@blueprintjs/core";
 
-interface Props {
+type Props = {
   columnNumber: number;
   rowNumber: number;
-}
+};
 
 const gridSquareClassName = style({
   position: "absolute",

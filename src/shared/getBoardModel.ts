@@ -5,7 +5,7 @@ export function getBoardModel(moves: number[]) {
 
   moves.forEach((move, index) => {
     const player: Player = index % 2 === 0 ? "P1" : "P2";
-    boardModel[move as number].push(player);
+    boardModel[move].push(player);
   });
 
   return boardModel;
