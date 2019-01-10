@@ -1,6 +1,6 @@
 ## Connect 4
 
-Connect 4 with a twist: Instead, of playing someone directly write a program to play for you. This repository is the client for the computer player(s) you will build. See the live client here: http://connect4.bradenhs.com
+Connect 4 with a twist: Instead, of playing someone directly write a program to play for you. This repository is the client for the computer player(s) you will build. See the live client here: http://connect4.surge.sh
 
 ## How to Play
 
