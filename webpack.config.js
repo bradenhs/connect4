@@ -31,17 +31,17 @@ function getWebpackConfig(env, argv) {
   });
 
   if (argv.mode === "development") {
-    rules.push({
-      test: /\.tsx?/,
-      loader: "tslint-loader"
-    });
-
     plugins.push(
       new ForkTsCheckerWebpackPlugin({
         tslint: true
       }),
       new ForkTsCheckerNotifierWebpackPlugin()
     );
+  } else {
+    rules.push({
+      test: /\.tsx?/,
+      loader: "tslint-loader"
+    });
   }
 
   /** @type {import("webpack").Configuration} */
