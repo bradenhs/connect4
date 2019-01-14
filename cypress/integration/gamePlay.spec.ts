@@ -84,22 +84,16 @@ function fakeGame(params: {
     | "p2IllegalMove";
 }) {
   for (let turn = 0; turn < params.turns.length; turn++) {
-    cy.get(`[data-testid="P1-token"]`)
-      .should("have.length", turn)
-      .then(() => {
-        cy.route("POST", "http://player1", { nextMove: params.turns[turn].p1 });
-      });
+    cy.get(`[data-testid="P1-token"]`).should("have.length", turn);
+    cy.route("POST", "http://player1", { nextMove: params.turns[turn].p1 });
 
     // There may be not a last p2 move
     if (params.turns[turn].p2 === undefined) {
-      continue;
+      break;
     }
 
-    cy.get(`[data-testid="P2-token"]`)
-      .should("have.length", turn)
-      .then(() => {
-        cy.route("POST", "http://player2", { nextMove: params.turns[turn].p2 });
-      });
+    cy.get(`[data-testid="P2-token"]`).should("have.length", turn);
+    cy.route("POST", "http://player2", { nextMove: params.turns[turn].p2 });
 
     if (turn === 0) {
       cy.window().then(win => {
