@@ -174,7 +174,7 @@ async function getNextMove(model: Model) {
   }
 
   return {
-    nextMove: parseInt(result.nextMove.toString(), 10) as number,
+    nextMove: parseInt(result.nextMove.toString(), 10),
     message: result.message
   };
 }
