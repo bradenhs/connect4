@@ -129,14 +129,14 @@ function fakeGame(params: {
   });
 
   if (params.expectedOutcome === "p1Win") {
-    cy.getByText("Player 1 wins!");
+    cy.queryByText("Player 1 wins!").should("exist");
   } else if (params.expectedOutcome === "p2Win") {
-    cy.getByText("Player 2 wins!");
+    cy.queryByText("Player 2 wins!").should("exist");
   } else if (params.expectedOutcome === "draw") {
-    cy.getByText("Draw!");
+    cy.queryByText("Draw!").should("exist");
   } else if (params.expectedOutcome === "p1IllegalMove") {
-    cy.getByText("Player 1 made an illegal move. They lose.");
+    cy.queryByText("Player 1 made an illegal move. They lose.").should("exist");
   } else if (params.expectedOutcome === "p2IllegalMove") {
-    cy.getByText("Player 2 made an illegal move. They lose.");
+    cy.queryByText("Player 2 made an illegal move. They lose.").should("exist");
   }
 }
